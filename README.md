@@ -46,7 +46,7 @@ use a generic error `code` instead of creating a custom `code` for `currency`:
 {
     "code": "40001",
     "short_message": "Invalid Request",
-    "long_message": "currency: Schema validation failed. Expected: 'SEK', Got: 'EUR'
+    "long_message": "currency: Schema validation failed. Expected: 'SEK', Got: 'EUR'"
 }
 ```
 
