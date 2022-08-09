@@ -4,7 +4,8 @@
 # Kivra API Errors
 
 This repository contains a complete list of Kivra API Errors along with the
-corresponding error codes.
+corresponding error codes. It also contains `Erlang` and `Go` libraries that
+simply working with Kivra API Errors in Kivra applications. 
 
 ## Kivra API Error Format
 
@@ -29,6 +30,26 @@ errors. While each `code` is associated with a unique `short_message`, the
 `long_message` may be partially or fully overwritten by Kivra applications to
 provide more specific information; `long_message`s specified in [`api-errors.json`](./api-errors.json)
 are indicative only and may be used as defaults by Kivra applications.
+
+## Use Error Definitions in Applications
+
+### Erlang
+
+Add `kivra-api-errors` as a dependency to your project. With `rebar3`:
+
+```erlang
+{kivra_api_errors, {git, "git@github.com:kivra/kivra-api-errors.git", {tag, "..."}}}
+```
+
+Call the `load/0` function on application startup to load error definitions
+from disk. Afterwards, use the `from_code/1` function to expand an error
+code to a HTTP status code and error payload:
+
+```erlang
+ok                               = kivra_api_errors:load(),
+{ok, {HTTPStatus, ErrorPayload}} = kivra_api_errors:from_code(<<"40001">>)
+
+```
 
 ## Guidelines for API Errors
 
