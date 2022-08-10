@@ -20,11 +20,15 @@ load() ->
       Error
   end.
 
--spec from_code(binary()) -> {ok, {200..599, map()}} | {error, notfound}.
+-spec from_code(binary() | pos_integer()) -> {ok, {200..599, map()}} | {error, notfound}.
+from_code(ErrorCode) when is_integer(ErrorCode) ->
+  from_code(integer_to_binary(ErrorCode));
 from_code(ErrorCode) ->
   lookup(ErrorCode).
 
--spec from_code(binary(), binary()) -> {ok, {200..599, map()}} | {error, notfound}.
+-spec from_code(binary() | pos_integer(), binary()) -> {ok, {200..599, map()}} | {error, notfound}.
+from_code(ErrorCode, LongMessage) when is_integer(ErrorCode) ->
+  from_code(integer_to_binary(ErrorCode), LongMessage);
 from_code(ErrorCode, LongMessage) ->
   case from_code(ErrorCode) of
     {ok, {HTTPStatus, Payload}} ->
@@ -52,7 +56,8 @@ get_error_ok_test() ->
   Expected = #{ <<"code">> => <<"40000">>
               , <<"short_message">> => <<"Bad Request">>
               , <<"long_message">> => <<"The server cannot or will not process the request due to an apparent client error">> },
-  ?assertEqual({ok, {400, Expected}}, from_code(<<"40000">>)).
+  ?assertEqual({ok, {400, Expected}}, from_code(<<"40000">>)),
+  ?assertEqual({ok, {400, Expected}}, from_code(40000)).
 
 notfound_test() ->
   ok = load(),
