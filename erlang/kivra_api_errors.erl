@@ -11,8 +11,10 @@ load() ->
   File = filename:join([code:priv_dir(?MODULE), <<"api-errors.json">>]),
   case file:read_file(File) of
     {ok, Json} ->
-      maps:fold(fun(K, V, ok) ->
-        persistent_term:put(key(K), V)
+      maps:fold(fun(Code, LongShort, ok) ->
+        HTTPStatus = binary_to_integer(binary:part(Code, 0, 3)),
+        Payload    = LongShort#{<<"code">> => Code},
+        persistent_term:put(key(Code), {HTTPStatus, Payload})
       end, ok, jiffy:decode(Json, [return_maps]));
     Error ->
       Error
@@ -20,19 +22,13 @@ load() ->
 
 -spec from_code(binary()) -> {ok, {200..599, map()}} | {error, notfound}.
 from_code(ErrorCode) ->
-  case lookup(ErrorCode) of
-    {ok, ErrorDefinition} ->
-      HTTPStatus = binary_to_integer(binary:part(ErrorCode, 0, 3)),
-      {ok, {HTTPStatus, ErrorDefinition#{<<"code">> => ErrorCode}}};
-    {error, notfound} = Error ->
-      Error
-  end.
+  lookup(ErrorCode).
 
 -spec from_code(binary(), binary()) -> {ok, {200..599, map()}} | {error, notfound}.
 from_code(ErrorCode, LongMessage) ->
   case from_code(ErrorCode) of
-    {ok, {HTTPStatus, ErrorDefinition}} ->
-      {ok, {HTTPStatus, ErrorDefinition#{<<"long_message">> => LongMessage}}};
+    {ok, {HTTPStatus, Payload}} ->
+      {ok, {HTTPStatus, Payload#{<<"long_message">> => LongMessage}}};
     {error, notfound} = Error ->
       Error
   end.
@@ -40,8 +36,8 @@ from_code(ErrorCode, LongMessage) ->
 %%%_* Private -----------------------------------------------------------------
 lookup(ErrorCode) ->
   case persistent_term:get(key(ErrorCode), undefined) of
-    undefined       -> {error, notfound};
-    ErrorDefinition -> {ok, ErrorDefinition}
+    undefined             -> {error, notfound};
+    {HTTPStatus, Payload} -> {ok, {HTTPStatus, Payload}}
   end.
 
 key(ErrorCode) ->

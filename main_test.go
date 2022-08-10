@@ -26,7 +26,7 @@ func TestGetErrorOK(t *testing.T) {
 
 	if apiError.Payload.LongMessage != "The server cannot or will not process the request due to an apparent client error" {
 		t.Fatalf(
-			"Expected Short Message 'The server cannot or will not process the request due to an apparent client error', got '%s'",
+			"Expected Long Message 'The server cannot or will not process the request due to an apparent client error', got '%s'",
 			apiError.Payload.LongMessage,
 		)
 	}
