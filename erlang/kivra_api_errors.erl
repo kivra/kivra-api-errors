@@ -8,31 +8,32 @@
 %%%_* API ---------------------------------------------------------------------
 -spec load() -> ok | {error, atom()}.
 load() ->
-  File = filename:join([code:priv_dir(?MODULE), <<"api-errors.json">>]),
+  ReturnMaps = application:get_env(?MODULE, return_maps, false),
+  File       = filename:join([code:priv_dir(?MODULE), <<"api-errors.json">>]),
   case file:read_file(File) of
     {ok, Json} ->
       maps:fold(fun(Code, LongShort, ok) ->
         HTTPStatus = binary_to_integer(binary:part(Code, 0, 3)),
-        Payload    = LongShort#{<<"code">> => Code},
+        Payload    = format(LongShort#{<<"code">> => Code}, ReturnMaps),
         persistent_term:put(key(Code), {HTTPStatus, Payload})
       end, ok, jiffy:decode(Json, [return_maps]));
     Error ->
       Error
   end.
 
--spec from_code(binary() | pos_integer()) -> {ok, {200..599, map()}} | {error, notfound}.
+-spec from_code(binary() | pos_integer()) -> {ok, {200..599, map() | list()}} | {error, notfound}.
 from_code(ErrorCode) when is_integer(ErrorCode) ->
   from_code(integer_to_binary(ErrorCode));
 from_code(ErrorCode) ->
   lookup(ErrorCode).
 
--spec from_code(binary() | pos_integer(), binary()) -> {ok, {200..599, map()}} | {error, notfound}.
+-spec from_code(binary() | pos_integer(), binary()) -> {ok, {200..599, map() | list()}} | {error, notfound}.
 from_code(ErrorCode, LongMessage) when is_integer(ErrorCode) ->
   from_code(integer_to_binary(ErrorCode), LongMessage);
 from_code(ErrorCode, LongMessage) ->
   case from_code(ErrorCode) of
     {ok, {HTTPStatus, Payload}} ->
-      {ok, {HTTPStatus, Payload#{<<"long_message">> => LongMessage}}};
+      {ok, {HTTPStatus, set(<<"long_message">>, LongMessage, Payload)}};
     {error, notfound} = Error ->
       Error
   end.
@@ -47,17 +48,39 @@ lookup(ErrorCode) ->
 key(ErrorCode) ->
   {?MODULE, ErrorCode}.
 
+set(Field, Value, Payload) when is_map(Payload) ->
+  Payload#{Field => Value};
+set(Field, Value, Payload) when is_list(Payload) ->
+  maps:to_list(set(Field, Value,maps:from_list(Payload))).
+
+format(Payload, true) when is_map(Payload) ->
+  Payload;
+format(Payload, false) when is_map(Payload) ->
+  maps:to_list(Payload).
+
 %%%_* Tests ===================================================================
 -ifdef(TEST).
 -include_lib("eunit/include/eunit.hrl").
 
-get_error_ok_test() ->
+get_error_map_ok_test() ->
+  ok       = application:set_env(?MODULE, return_maps, true),
   ok       = load(),
   Expected = #{ <<"code">> => <<"40000">>
               , <<"short_message">> => <<"Bad Request">>
               , <<"long_message">> => <<"The server cannot or will not process the request due to an apparent client error">> },
   ?assertEqual({ok, {400, Expected}}, from_code(<<"40000">>)),
   ?assertEqual({ok, {400, Expected}}, from_code(40000)).
+
+get_error_proplist_ok_test() ->
+  ok       = application:set_env(?MODULE, return_maps, false),
+  ok       = load(),
+  Expected = [ {<<"code">>, <<"40000">>}
+             , {<<"short_message">>, <<"Bad Request">>}
+             , {<<"long_message">>, <<"The server cannot or will not process the request due to an apparent client error">> }],
+  Returned = from_code(<<"40000">>),
+  ?assertMatch({ok, {400, _}}, Returned),
+  {ok, {400, Actual}} = Returned,
+  ?assertEqual(maps:from_list(Expected), maps:from_list(Actual)).
 
 notfound_test() ->
   ok = load(),

@@ -41,7 +41,7 @@
     },
     "40010": {
         "short_message": "No action supplied or invalid",
-        "long_message": "The action parameter was not supplied or invalid"
+        "long_message": "The action parameter was not supplied or is invalid"
     },
     "40011": {
         "short_message": "Failed Extended Validation",
@@ -57,7 +57,7 @@
     },
     "40014": {
         "short_message": "Invalid Status",
-        "long_message": "The request can't be processed due to invalid Status"
+        "long_message": "The request can't be processed due to invalid status"
     },
     "40015": {
         "short_message": "Invalid Token",
@@ -65,7 +65,7 @@
     },
     "40016": {
         "short_message": "Invalid State",
-        "long_message": "The request can't be processed due to invalid State"
+        "long_message": "The request can't be processed due to invalid state"
     },
     "40017": {
         "short_message": "Invalid Campaigns",
@@ -93,7 +93,7 @@
     },
     "40023": {
         "short_message": "Invalid Contact Info",
-        "long_message": "Invalid contact_info provided"
+        "long_message": "The request can't be processed due to invalid contact info"
     },
     "40024": {
         "short_message": "No Receiver Specified",
@@ -240,8 +240,8 @@
         "long_message": "The requested resource requires a greater security score than the one associated with the current login method"
     },
     "40113": {
-        "short_message": "User does not exist with provided id",
-        "long_message": "Contact us to enroll, make sure to include your id: {id}"
+        "short_message": "User does not exist with provided ID",
+        "long_message": "Contact us to enroll, make sure to include your ID"
     },
     "40200": {
         "short_message": "Payment Required",

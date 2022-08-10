@@ -51,6 +51,13 @@ ok                               = kivra_api_errors:load(),
 
 ```
 
+By default, `ErrorPayload` is a `proplist`. To return a `map` instead, set
+`return_maps` to true:
+
+```erlang
+{kivra_api_errors, [{return_maps, true}]}
+```
+
 ### Go
 
 Add `kivra-api-errors` as a dependency to your project:

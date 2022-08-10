@@ -1,4 +1,8 @@
 [{<<"jiffy">>,
   {git,"git@github.com:kivra/jiffy.git",
        {ref,"9ea1b35b6e60ba21dfd4adbd18e7916a831fd7d4"}},
+  0},
+ {<<"jsx">>,
+  {git,"git@github.com:kivra/jsx.git",
+       {ref,"fc2a001073f2300ba38427c23e83d5673c020542"}},
   0}].
