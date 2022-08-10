@@ -5,7 +5,7 @@
 
 This repository contains a complete list of Kivra API Errors along with the
 corresponding error codes. It also contains `Erlang` and `Go` libraries that
-simply working with Kivra API Errors in Kivra applications. 
+simplify working with Kivra API Errors in Kivra applications.
 
 ## Kivra API Error Format
 
@@ -61,7 +61,7 @@ go get github.com/kivra/kivra-api-errors
 
 Call the `Load` function on application startup to load error definitions
 from disk. Afterwards, use the `FromCode` function to expand an error
-code to a HTTP status code and error payload:
+code to an `ApiError`:
 
 ```go
 import (
