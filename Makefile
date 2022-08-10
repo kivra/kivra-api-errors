@@ -5,3 +5,10 @@ build:
 
 lint: build
 	@docker run --rm $(PROJECT_NAME)
+
+erl:
+	rebar3 dialyzer;
+	rebar3 eunit
+
+go:
+	go test .
