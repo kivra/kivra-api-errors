@@ -17,8 +17,8 @@ jobs:
 
     - name: Run Erlang Tests 🏃🏾
       shell: bash
-      run: make erl
+      run: make test-erl
 
     - name: Run Go Tests 🏃🏽‍♀️
       shell: bash
-      run: make go
+      run: make test-go
