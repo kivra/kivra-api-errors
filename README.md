@@ -51,6 +51,27 @@ ok                               = kivra_api_errors:load(),
 
 ```
 
+### Go
+
+Add `kivra-api-errors` as a dependency to your project:
+
+```bash
+go get github.com/kivra/kivra-api-errors
+```
+
+Call the `Load` function on application startup to load error definitions
+from disk. Afterwards, use the `FromCode` function to expand an error
+code to a HTTP status code and error payload:
+
+```go
+import (
+	apiErrors "github.com/kivra/kivra-api-errors"
+)
+
+apiErrors.Load()
+apiError, ok := apiErrors.FromCode("40001")
+```
+
 ## Guidelines for API Errors
 
 When adding new error codes, use the guidelines below to get started. Feel
