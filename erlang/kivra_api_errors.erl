@@ -51,7 +51,7 @@ key(ErrorCode) ->
 set(Field, Value, Payload) when is_map(Payload) ->
   Payload#{Field => Value};
 set(Field, Value, Payload) when is_list(Payload) ->
-  maps:to_list(set(Field, Value,maps:from_list(Payload))).
+  maps:to_list(set(Field, Value, maps:from_list(Payload))).
 
 format(Payload, true) when is_map(Payload) ->
   Payload;
@@ -71,6 +71,14 @@ get_error_map_ok_test() ->
   ?assertEqual({ok, {400, Expected}}, from_code(<<"40000">>)),
   ?assertEqual({ok, {400, Expected}}, from_code(40000)).
 
+get_error_map_overwrite_long_message_ok_test() ->
+  ok       = application:set_env(?MODULE, return_maps, true),
+  ok       = load(),
+  Expected = #{ <<"code">> => <<"40000">>
+              , <<"short_message">> => <<"Bad Request">>
+              , <<"long_message">> => <<"Long Message">> },
+  ?assertEqual({ok, {400, Expected}}, from_code(<<"40000">>, <<"Long Message">>)).
+
 get_error_proplist_ok_test() ->
   ok       = application:set_env(?MODULE, return_maps, false),
   ok       = load(),
@@ -78,6 +86,17 @@ get_error_proplist_ok_test() ->
              , {<<"short_message">>, <<"Bad Request">>}
              , {<<"long_message">>, <<"The server cannot or will not process the request due to an apparent client error">> }],
   Returned = from_code(<<"40000">>),
+  ?assertMatch({ok, {400, _}}, Returned),
+  {ok, {400, Actual}} = Returned,
+  ?assertEqual(maps:from_list(Expected), maps:from_list(Actual)).
+
+get_error_proplist_overwrite_long_message_ok_test() ->
+  ok       = application:set_env(?MODULE, return_maps, false),
+  ok       = load(),
+  Expected = [ {<<"code">>, <<"40000">>}
+             , {<<"short_message">>, <<"Bad Request">>}
+             , {<<"long_message">>, <<"Long Message">> }],
+  Returned = from_code(<<"40000">>, <<"Long Message">>),
   ?assertMatch({ok, {400, _}}, Returned),
   {ok, {400, Actual}} = Returned,
   ?assertEqual(maps:from_list(Expected), maps:from_list(Actual)).
