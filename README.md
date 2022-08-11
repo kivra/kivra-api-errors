@@ -1,6 +1,3 @@
-> This project is work-in-progress. Please refer to Kivra's official [API Documentation](https://developer.kivra.com/#section/Errors/Error-codes)
-> for now.
-
 # Kivra API Errors
 
 This repository contains a complete list of Kivra API Errors along with the

@@ -4,14 +4,19 @@
 %%%_* Exports =================================================================
 -export([load/0, from_code/1, from_code/2]).
 
+%%%_* Types ===================================================================
+-type status_code() :: 400..599.
+-type payload_map() :: #{binary() := binary()}.
+-type payload_kv()  :: [{binary(), binary()}].
+
 %%%_* Code ====================================================================
 %%%_* API ---------------------------------------------------------------------
 -spec load() -> ok | {error, atom()}.
 load() ->
-  ReturnMaps = application:get_env(?MODULE, return_maps, false),
-  File       = filename:join([code:priv_dir(?MODULE), <<"api-errors.json">>]),
+  File = filename:join([code:priv_dir(?MODULE), <<"api-errors.json">>]),
   case file:read_file(File) of
     {ok, Json} ->
+      ReturnMaps = application:get_env(?MODULE, return_maps, false),
       maps:fold(fun(Code, LongShort, ok) ->
         HTTPStatus = binary_to_integer(binary:part(Code, 0, 3)),
         Payload    = format(LongShort#{<<"code">> => Code}, ReturnMaps),
@@ -21,13 +26,13 @@ load() ->
       Error
   end.
 
--spec from_code(binary() | pos_integer()) -> {ok, {200..599, map() | list()}} | {error, notfound}.
+-spec from_code(binary() | pos_integer()) -> {ok, {status_code(), payload_map() | payload_kv()}} | {error, notfound}.
 from_code(ErrorCode) when is_integer(ErrorCode) ->
   from_code(integer_to_binary(ErrorCode));
 from_code(ErrorCode) ->
   lookup(ErrorCode).
 
--spec from_code(binary() | pos_integer(), binary()) -> {ok, {200..599, map() | list()}} | {error, notfound}.
+-spec from_code(binary() | pos_integer(), binary()) -> {ok, {status_code(), payload_map() | payload_kv()}} | {error, notfound}.
 from_code(ErrorCode, LongMessage) when is_integer(ErrorCode) ->
   from_code(integer_to_binary(ErrorCode), LongMessage);
 from_code(ErrorCode, LongMessage) ->
