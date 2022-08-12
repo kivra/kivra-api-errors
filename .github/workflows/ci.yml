@@ -1,7 +1,7 @@
 on: [push]
 
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
@@ -9,3 +9,16 @@ jobs:
     - name: Run Linter 🧐
       shell: bash
       run: make lint
+
+    - name: Configure git 🔧
+      run: |
+        git config --global url."https://${{ secrets.KIVRABOT }}@github.com/kivra/".insteadOf "git@github.com:kivra/"
+        git config --global url."https://${{ secrets.KIVRABOT }}@github.com/kivra".insteadOf "https://github.com/kivra"
+
+    - name: Run Erlang Tests 🏃🏾
+      shell: bash
+      run: make test-erl
+
+    - name: Run Go Tests 🏃🏽‍♀️
+      shell: bash
+      run: make test-go
