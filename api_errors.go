@@ -1,9 +1,10 @@
-package main
+package apierrors
 
 import (
 	"bytes"
 	_ "embed"
 	"encoding/json"
+	"fmt"
 	"strconv"
 )
 
@@ -28,6 +29,9 @@ var apiErrors = make(map[string]ApiError)
 //the line below (go:embed...) is a directive, not a comment!
 //go:embed api-errors.json
 var jsonErrorDefinitions []byte
+
+// Fallback ApiError that is returned if no matching ApiError is found
+var Fallback = "50000"
 
 // Load error definitions from disk. Should only be done once at application
 // startup. Might cause race condition if error definitions are accessed at
@@ -57,4 +61,24 @@ func Load() {
 func FromCode(errorCode string) (ApiError, bool) {
 	apiError, ok := apiErrors[errorCode]
 	return apiError, ok
+}
+
+// Expands a 5-digit errorCode to an ApiError. Returns Fallback if code cannot
+// be found.
+func FromCodeOrFallback(errorCode string) ApiError {
+	apiError, ok := FromCode(errorCode)
+	if ok {
+		return apiError
+	}
+	apiError, ok = apiErrors[Fallback]
+	if !ok {
+		panic("fallback error code does not exist: " + errorCode)
+	}
+	return apiError
+}
+
+// Expands an HTTP status code to an ApiError. Returns Fallback if status
+// cannot be expanded.
+func FromStatusOrFallback(status int) ApiError {
+	return FromCodeOrFallback(fmt.Sprintf("%d00", status))
 }

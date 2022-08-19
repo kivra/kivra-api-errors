@@ -1,4 +1,4 @@
-package main
+package apierrors
 
 import (
 	"testing"
@@ -29,6 +29,33 @@ func TestGetErrorOK(t *testing.T) {
 			"Expected Long Message 'The server cannot or will not process the request due to an apparent client error', got '%s'",
 			apiError.Payload.LongMessage,
 		)
+	}
+}
+
+func TestDefaultFallbackExists(t *testing.T) {
+	Load()
+	_, ok := FromCode(Fallback)
+
+	if !ok {
+		t.Fatalf("Failed to load error definition for default fallback code %s", Fallback)
+	}
+}
+
+func TestFromStatusorFallback(t *testing.T) {
+	Load()
+	apiError := FromStatusOrFallback(400)
+
+	if apiError.Payload.Code != "40000" {
+		t.Fatalf("Did not return fallback error code. Expected 40000, got %s", apiError.Payload.Code)
+	}
+}
+
+func TestReturnFallback(t *testing.T) {
+	Load()
+	apiError := FromCodeOrFallback("60000")
+
+	if apiError.Payload.Code != Fallback {
+		t.Fatalf("Did not return fallback error code. Expected %s, got %s", Fallback, apiError.Payload.Code)
 	}
 }
 
