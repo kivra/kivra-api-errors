@@ -32,6 +32,24 @@ func TestGetErrorOK(t *testing.T) {
 	}
 }
 
+func TestDefaultFallbackExists(t *testing.T) {
+	Load()
+	_, ok := FromCode(Fallback)
+
+	if !ok {
+		t.Fatalf("Failed to load error definition for default fallback code %s", Fallback)
+	}
+}
+
+func TestReturnFallback(t *testing.T) {
+	Load()
+	apiError := FromCodeOrFallback("60000")
+
+	if apiError.Payload.Code != Fallback {
+		t.Fatalf("Did not return fallback error code. Expected %s, got %s", Fallback, apiError.Payload.Code)
+	}
+}
+
 func TestUnknownCode(t *testing.T) {
 	Load()
 	_, ok := FromCode("60000")

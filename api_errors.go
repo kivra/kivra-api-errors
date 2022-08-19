@@ -29,6 +29,9 @@ var apiErrors = make(map[string]ApiError)
 //go:embed api-errors.json
 var jsonErrorDefinitions []byte
 
+// Fallback ApiError that is returned if no matching ApiError is found
+var Fallback = "50000"
+
 // Load error definitions from disk. Should only be done once at application
 // startup. Might cause race condition if error definitions are accessed at
 // the same time.
@@ -57,4 +60,18 @@ func Load() {
 func FromCode(errorCode string) (ApiError, bool) {
 	apiError, ok := apiErrors[errorCode]
 	return apiError, ok
+}
+
+// Expands a 5-digit errorCode to an ApiError. Returns Fallback if code cannot
+// be found.
+func FromCodeOrFallback(errorCode string) ApiError {
+	apiError, ok := FromCode(errorCode)
+	if ok {
+		return apiError
+	}
+	apiError, ok = apiErrors[Fallback]
+	if !ok {
+		panic("fallback error code does not exist: " + errorCode)
+	}
+	return apiError
 }
