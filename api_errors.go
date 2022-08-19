@@ -4,6 +4,7 @@ import (
 	"bytes"
 	_ "embed"
 	"encoding/json"
+	"fmt"
 	"strconv"
 )
 
@@ -74,4 +75,10 @@ func FromCodeOrFallback(errorCode string) ApiError {
 		panic("fallback error code does not exist: " + errorCode)
 	}
 	return apiError
+}
+
+// Expands an HTTP status code to an ApiError. Returns Fallback if status
+// cannot be expanded.
+func FromStatusOrFallback(status int) ApiError {
+	return FromCodeOrFallback(fmt.Sprintf("%d00", status))
 }

@@ -41,6 +41,15 @@ func TestDefaultFallbackExists(t *testing.T) {
 	}
 }
 
+func TestFromStatusorFallback(t *testing.T) {
+	Load()
+	apiError := FromStatusOrFallback(400)
+
+	if apiError.Payload.Code != "40000" {
+		t.Fatalf("Did not return fallback error code. Expected 40000, got %s", apiError.Payload.Code)
+	}
+}
+
 func TestReturnFallback(t *testing.T) {
 	Load()
 	apiError := FromCodeOrFallback("60000")
