@@ -183,6 +183,14 @@
         "short_message": "Invalid labels",
         "long_message": "The supplied labels does not match the required format"
     },
+    "40050": {
+        "short_message": "Cant accept form response",
+        "long_message": "Error processing form response"
+    },
+    "40051": {
+        "short_message": "Cant create content form mapping",
+        "long_message": "Impossible to create content with a given form"
+    },
     "40098": {
         "short_message": "Invalid barcode data",
         "long_message": "The barcode could not be created due to invalid barcode type"
