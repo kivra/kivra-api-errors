@@ -21,8 +21,7 @@ def required_codes() -> list(String):
 
 
 def code_pattern() -> str:
-    return "|".join(map(lambda c: f"({c}" + r"\d{2})", HTTP_STATUS_CODES))
-
+    return "(20010)|"+"|".join(map(lambda c: f"({c}" + r"\d{2})", HTTP_STATUS_CODES))
 
 def get_schema():
     return {
