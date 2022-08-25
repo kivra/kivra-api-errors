@@ -1,4 +1,8 @@
 {
+    "20010": {
+        "short_message": "OTP required",
+        "long_message": "The request can’t be processed due to OTP required"
+    },
     "40000": {
         "short_message": "Bad Request",
         "long_message": "The server cannot or will not process the request due to an apparent client error"
