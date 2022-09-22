@@ -24,6 +24,9 @@ type ApiError struct {
 	Payload    Payload
 }
 
+// Reponse header field that holds the API Error Code
+const ErrorCodeHeader = "X-Error-Code"
+
 var apiErrors = make(map[string]ApiError)
 
 //the line below (go:embed...) is a directive, not a comment!
