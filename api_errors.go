@@ -36,10 +36,16 @@ var jsonErrorDefinitions []byte
 // Fallback ApiError that is returned if no matching ApiError is found
 var Fallback = "50000"
 
+var isLoaded = false
+
 // Load error definitions from disk. Should only be done once at application
 // startup. Might cause race condition if error definitions are accessed at
 // the same time.
 func Load() {
+	if isLoaded {
+		return
+	}
+
 	var errorDefinitions map[string]ErrorDefinition
 	buf := bytes.NewBuffer(jsonErrorDefinitions)
 	if err := json.NewDecoder(buf).Decode(&errorDefinitions); err != nil {
@@ -57,6 +63,7 @@ func Load() {
 			},
 		}
 	}
+	isLoaded = true
 }
 
 // Expands a 5-digit errorCode to an ApiError. Returns ok = false if errorCode
@@ -84,4 +91,10 @@ func FromCodeOrFallback(errorCode string) ApiError {
 // cannot be expanded.
 func FromStatusOrFallback(status int) ApiError {
 	return FromCodeOrFallback(fmt.Sprintf("%d00", status))
+}
+
+// Check if a string is an error code
+func IsCode(maybeCode string) bool {
+	_, ok := FromCode(maybeCode)
+	return ok
 }
