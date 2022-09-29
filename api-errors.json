@@ -195,6 +195,10 @@
         "short_message": "Cant create content form mapping",
         "long_message": "Impossible to create content with a given form"
     },
+    "40052": {
+        "short_message": "Malformed header",
+        "long_message": "One or more headers are malformed"
+    },
     "40098": {
         "short_message": "Invalid barcode data",
         "long_message": "The barcode could not be created due to invalid barcode type"
