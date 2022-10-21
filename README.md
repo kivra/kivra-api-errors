@@ -76,6 +76,23 @@ apiErrors.Load()
 apiError, ok := apiErrors.FromCode("40001")
 ```
 
+### Python
+
+Install the package from the repository, e.g. using `pip`:
+
+```
+pip install git+https://github.com/kivra/kivra-api-errors@[:tag]
+```
+
+Then it can be imported and used:
+
+```python
+from kivra_api_errors import KivraAPIError
+
+KivraAPIError.load()
+api_error = KivraAPIError.from_code(code)
+```
+
 ## Guidelines for API Errors
 
 When adding new error codes, use the guidelines below to get started. Feel
