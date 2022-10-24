@@ -22,3 +22,7 @@ jobs:
     - name: Run Go Tests 🏃🏽‍♀️
       shell: bash
       run: make test-go
+
+    - name: Run python Tests 🏃🏾
+      shell: bash
+      run: make test-python

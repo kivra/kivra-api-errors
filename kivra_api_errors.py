@@ -11,9 +11,9 @@ errors = {}
 class KivraAPIError:
 
     @staticmethod
-    def load() -> None:
+    def load(path: str = API_ERROR_JSON_FILEPATH) -> None:
         global errors
-        with open(API_ERROR_JSON_FILEPATH) as f:
+        with open(path) as f:
             errors = json.load(f)
 
     @staticmethod
@@ -24,7 +24,4 @@ class KivraAPIError:
     @staticmethod
     def is_code(code) -> bool:
         global errors
-        if errors.get(code):
-            return True
-
-        return False
+        return code in errors

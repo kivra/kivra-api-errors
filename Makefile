@@ -12,3 +12,6 @@ test-erl:
 
 test-go:
 	go test .
+
+test-python:
+	python3 -m unittest kivra_api_errors_tests.py
