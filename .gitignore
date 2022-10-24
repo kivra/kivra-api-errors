@@ -1,3 +1,5 @@
 .vscode/
 _build/
 priv/
+__pycache__/
+*~
