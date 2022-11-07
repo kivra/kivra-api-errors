@@ -2,7 +2,7 @@
 -module(kivra_api_errors).
 
 %%%_* Exports =================================================================
--export([load/0, from_code/1, from_code/2]).
+-export([load/0, load/1, from_code/1, from_code/2]).
 
 %%%_* Types ===================================================================
 -type status_code() :: 400..599.
