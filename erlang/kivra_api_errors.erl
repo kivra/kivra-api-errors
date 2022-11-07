@@ -2,21 +2,26 @@
 -module(kivra_api_errors).
 
 %%%_* Exports =================================================================
--export([load/0, from_code/1, from_code/2]).
+-export([load/0, load/1, from_code/1, from_code/2]).
 
 %%%_* Types ===================================================================
 -type status_code() :: 400..599.
 -type payload_map() :: #{binary() := binary()}.
 -type payload_kv()  :: [{binary(), binary()}].
+-type config()      :: #{atom() := term()}.
 
 %%%_* Code ====================================================================
 %%%_* API ---------------------------------------------------------------------
 -spec load() -> ok | {error, atom()}.
 load() ->
+  load(#{}).
+
+-spec load(config()) -> ok | {error, atom()}.
+load(Config) ->
   File = filename:join([code:priv_dir(?MODULE), <<"api-errors.json">>]),
   case file:read_file(File) of
     {ok, Json} ->
-      ReturnMaps = application:get_env(?MODULE, return_maps, false),
+      ReturnMaps = maps:get(return_maps, Config, false),
       maps:fold(fun(Code, LongShort, ok) ->
         HTTPStatus = binary_to_integer(binary:part(Code, 0, 3)),
         Payload    = format(LongShort#{<<"code">> => Code}, ReturnMaps),
@@ -68,8 +73,7 @@ format(Payload, false) when is_map(Payload) ->
 -include_lib("eunit/include/eunit.hrl").
 
 get_error_map_ok_test() ->
-  ok       = application:set_env(?MODULE, return_maps, true),
-  ok       = load(),
+  ok       = load(#{return_maps => true}),
   Expected = #{ <<"code">> => <<"40000">>
               , <<"short_message">> => <<"Bad Request">>
               , <<"long_message">> => <<"The server cannot or will not process the request due to an apparent client error">> },
@@ -77,15 +81,13 @@ get_error_map_ok_test() ->
   ?assertEqual({ok, {400, Expected}}, from_code(40000)).
 
 get_error_map_overwrite_long_message_ok_test() ->
-  ok       = application:set_env(?MODULE, return_maps, true),
-  ok       = load(),
+  ok       = load(#{return_maps => true}),
   Expected = #{ <<"code">> => <<"40000">>
               , <<"short_message">> => <<"Bad Request">>
               , <<"long_message">> => <<"Long Message">> },
   ?assertEqual({ok, {400, Expected}}, from_code(<<"40000">>, <<"Long Message">>)).
 
 get_error_proplist_ok_test() ->
-  ok       = application:set_env(?MODULE, return_maps, false),
   ok       = load(),
   Expected = [ {<<"code">>, <<"40000">>}
              , {<<"short_message">>, <<"Bad Request">>}
@@ -96,7 +98,6 @@ get_error_proplist_ok_test() ->
   ?assertEqual(maps:from_list(Expected), maps:from_list(Actual)).
 
 get_error_proplist_overwrite_long_message_ok_test() ->
-  ok       = application:set_env(?MODULE, return_maps, false),
   ok       = load(),
   Expected = [ {<<"code">>, <<"40000">>}
              , {<<"short_message">>, <<"Bad Request">>}
