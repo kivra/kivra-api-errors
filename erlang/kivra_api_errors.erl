@@ -8,15 +8,20 @@
 -type status_code() :: 400..599.
 -type payload_map() :: #{binary() := binary()}.
 -type payload_kv()  :: [{binary(), binary()}].
+-type config()      :: #{atom() := term()}.
 
 %%%_* Code ====================================================================
 %%%_* API ---------------------------------------------------------------------
 -spec load() -> ok | {error, atom()}.
 load() ->
+  load(#{}).
+
+-spec load(config()) -> ok | {error, atom()}.
+load(Config) ->
   File = filename:join([code:priv_dir(?MODULE), <<"api-errors.json">>]),
   case file:read_file(File) of
     {ok, Json} ->
-      ReturnMaps = application:get_env(?MODULE, return_maps, false),
+      ReturnMaps = maps:get(return_maps, Config, false),
       maps:fold(fun(Code, LongShort, ok) ->
         HTTPStatus = binary_to_integer(binary:part(Code, 0, 3)),
         Payload    = format(LongShort#{<<"code">> => Code}, ReturnMaps),
