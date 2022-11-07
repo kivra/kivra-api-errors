@@ -24,15 +24,15 @@
         "long_message": "This user is already registered"
     },
     "40005": {
-        "short_message": "Error In Phonenumber",
+        "short_message": "Invalid Phone Number",
         "long_message": "The request can't be processed due to phonenumber not meeting the required format"
     },
     "40006": {
-        "short_message": "Error In Password",
+        "short_message": "Invalid Password",
         "long_message": "The request can't be processed due to password not meeting the required format"
     },
     "40007": {
-        "short_message": "Error In Email",
+        "short_message": "Invalid Email",
         "long_message": "The request can't be processed due to email not meeting the required format"
     },
     "40008": {
@@ -40,7 +40,7 @@
         "long_message": "The JSON payload was malformed. The client should not repeat this request without modification"
     },
     "40009": {
-        "short_message": "Error In SSN",
+        "short_message": "Invalid SSN",
         "long_message": "The request can't be processed due to SSN not meeting the required format"
     },
     "40010": {
@@ -76,7 +76,7 @@
         "long_message": "The request can't be processed due to invalid campaigns"
     },
     "40018": {
-        "short_message": "Error In Company ID",
+        "short_message": "Invalid Company ID",
         "long_message": "The request can't be processed due to Company ID not meeting the required format"
     },
     "40019": {
