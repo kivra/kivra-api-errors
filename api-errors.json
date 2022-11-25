@@ -1,7 +1,7 @@
 {
     "20010": {
-        "short_message": "OTP required",
-        "long_message": "The request can’t be processed due to OTP required"
+        "short_message": "OTP Required",
+        "long_message": "The request can't be processed due to OTP required"
     },
     "40000": {
         "short_message": "Bad Request",
@@ -12,7 +12,7 @@
         "long_message": "The request was invalid. The client should not repeat this request without modification"
     },
     "40002": {
-        "short_message": "Redirect URI mismatch",
+        "short_message": "Redirect URI Mismatch",
         "long_message": "The redirect_uri does not match the registered redirect_uri"
     },
     "40003": {
@@ -20,31 +20,31 @@
         "long_message": "An invalid or insufficient scope was used"
     },
     "40004": {
-        "short_message": "Already Registered",
+        "short_message": "User Already Registered",
         "long_message": "This user is already registered"
     },
     "40005": {
-        "short_message": "Error in phonenumber",
+        "short_message": "Invalid Phone Number",
         "long_message": "The request can't be processed due to phonenumber not meeting the required format"
     },
     "40006": {
-        "short_message": "Error in password",
+        "short_message": "Invalid Password",
         "long_message": "The request can't be processed due to password not meeting the required format"
     },
     "40007": {
-        "short_message": "Error in email",
+        "short_message": "Invalid Email",
         "long_message": "The request can't be processed due to email not meeting the required format"
     },
     "40008": {
-        "short_message": "Unprocessable Entity",
+        "short_message": "Malformed JSON Payload",
         "long_message": "The JSON payload was malformed. The client should not repeat this request without modification"
     },
     "40009": {
-        "short_message": "Error in SSN",
+        "short_message": "Invalid SSN",
         "long_message": "The request can't be processed due to SSN not meeting the required format"
     },
     "40010": {
-        "short_message": "No action supplied or invalid",
+        "short_message": "Invalid Action",
         "long_message": "The action parameter was not supplied or is invalid"
     },
     "40011": {
@@ -52,11 +52,11 @@
         "long_message": "The request can't be processed due to SSN and/or mobile failed extended validation"
     },
     "40012": {
-        "short_message": "Error in type",
+        "short_message": "Type Error",
         "long_message": "The request can't be processed due to type field failing extended validation"
     },
     "40013": {
-        "short_message": "Sendrequest already accepted",
+        "short_message": "Sendrequest Already Accepted",
         "long_message": "The request can't be processed due to user have already a accepted sendrequest"
     },
     "40014": {
@@ -72,11 +72,11 @@
         "long_message": "The request can't be processed due to invalid state"
     },
     "40017": {
-        "short_message": "Invalid Campaigns",
+        "short_message": "Invalid Campaign",
         "long_message": "The request can't be processed due to invalid campaigns"
     },
     "40018": {
-        "short_message": "Error in Company ID",
+        "short_message": "Invalid Company ID",
         "long_message": "The request can't be processed due to Company ID not meeting the required format"
     },
     "40019": {
@@ -100,7 +100,7 @@
         "long_message": "The request can't be processed due to invalid contact info"
     },
     "40024": {
-        "short_message": "No Receiver Specified",
+        "short_message": "Missing Receiver",
         "long_message": "Neither 'ssn' nor 'vat_number' have been specified as receiver"
     },
     "40025": {
@@ -108,11 +108,11 @@
         "long_message": "The provided OTP is invalid or expired"
     },
     "40026": {
-        "short_message": "JSON payload was not an object",
+        "short_message": "Malformed JSON Payload",
         "long_message": "The JSON payload was malformed. Only JSON objects are supported"
     },
     "40027": {
-        "short_message": "Signature verification failed",
+        "short_message": "Invalid Signup Signature",
         "long_message": "Signup signature is invalid or signup data is altered"
     },
     "40028": {
@@ -120,23 +120,23 @@
         "long_message": "You sent a file we do not support"
     },
     "40030": {
-        "short_message": "Icon Size Error",
+        "short_message": "Invalid Icon Size",
         "long_message": "Icon must follow rules: X = Y, X >= 256, X <= 512. Where X is width and Y is height"
     },
     "40031": {
-        "short_message": "PNG Missing Alpha Channel",
+        "short_message": "Missing PNG Alpha Channel",
         "long_message": "Only PNG with alpha channel (PNG32) is allowed"
     },
     "40032": {
-        "short_message": "User doesn't exist",
+        "short_message": "User Not Found",
         "long_message": "No user exists with provided SSN"
     },
     "40033": {
-        "short_message": "Invalid query parameters",
+        "short_message": "Invalid Query Parameter",
         "long_message": "One or more query parameters were invalid, e.g. bad format, not supported"
     },
     "40035": {
-        "short_message": "Required header missing",
+        "short_message": "Missing Header",
         "long_message": "One or more required headers were missing in the request"
     },
     "40036": {
@@ -144,31 +144,31 @@
         "long_message": "The resource you are trying to create already exists"
     },
     "40037": {
-        "short_message": "Agreement parties are not unique",
+        "short_message": "Agreement Parties Not Unique",
         "long_message": "All agreement parties must have a unique SSN"
     },
     "40038": {
-        "short_message": "Destination URL does not meet requirements",
+        "short_message": "Invalid Or Unregistered URL",
         "long_message": "Its either not following the format https://subdomain.domain.tld/* or is not yet registered in our system. Please contact us for support"
     },
     "40039": {
-        "short_message": "Cannot publish or update a canceled campaign",
+        "short_message": "Canceled Campaign",
         "long_message": "Cannot publish or update a canceled campaign"
     },
     "40040": {
-        "short_message": "Campaign must have an image",
+        "short_message": "Missing Campaign Image",
         "long_message": "Cannot publish campaign without an image"
     },
     "40041": {
-        "short_message": "Invalid pay date",
+        "short_message": "Invalid Pay Date",
         "long_message": "Pay date is in the past, too far in the future or not a bank day"
     },
     "40042": {
-        "short_message": "Invalid amount",
+        "short_message": "Invalid Amount",
         "long_message": "The amount is out of range"
     },
     "40043": {
-        "short_message": "Invalid user preference",
+        "short_message": "Invalid User Preference",
         "long_message": "This preference is not supported"
     },
     "40044": {
@@ -176,7 +176,7 @@
         "long_message": "The OCR did not pass validation"
     },
     "40045": {
-        "short_message": "Invalid option id",
+        "short_message": "Option ID Not Found",
         "long_message": "The option does not exist"
     },
     "40047": {
@@ -184,23 +184,23 @@
         "long_message": "The supplied agreement PDF was invalid. Please check that the file is a valid PDF"
     },
     "40048": {
-        "short_message": "Invalid labels",
+        "short_message": "Invalid Label",
         "long_message": "The supplied labels does not match the required format"
     },
     "40050": {
-        "short_message": "Cant accept form response",
+        "short_message": "Form Response Error",
         "long_message": "Error processing form response"
     },
     "40051": {
-        "short_message": "Cant create content form mapping",
+        "short_message": "Content Form Creation Error",
         "long_message": "Impossible to create content with a given form"
     },
     "40052": {
-        "short_message": "Malformed header",
+        "short_message": "Malformed Header",
         "long_message": "One or more headers are malformed"
     },
     "40098": {
-        "short_message": "Invalid barcode data",
+        "short_message": "Invalid Barcode",
         "long_message": "The barcode could not be created due to invalid barcode type"
     },
     "40100": {
@@ -228,19 +228,19 @@
         "long_message": "No sendrequest exists between sender and receiver, or sendrequest is not accepted"
     },
     "40106": {
-        "short_message": "Email is already in use",
+        "short_message": "Email In Use",
         "long_message": "This email adress is already in use and can not be used"
     },
     "40107": {
-        "short_message": "Phone number is already in use",
+        "short_message": "Phone Number In Use",
         "long_message": "This phone number is already in use and can not be used"
     },
     "40108": {
-        "short_message": "Registration Code or Sendrequest Invalid",
+        "short_message": "Invalid Registration Code Or Sendrequest",
         "long_message": "The Registration Code is invalid or no Sendrequest exists or has been expired"
     },
     "40109": {
-        "short_message": "Sendrequest or Share exists or is blocked",
+        "short_message": "Sendrequest Or Share Already Exists",
         "long_message": "An already existing Sendrequest exists or is blocked"
     },
     "40110": {
@@ -256,7 +256,7 @@
         "long_message": "The requested resource requires a greater security score than the one associated with the current login method"
     },
     "40113": {
-        "short_message": "User does not exist with provided ID",
+        "short_message": "No User With ID",
         "long_message": "Contact us to enroll, make sure to include your ID"
     },
     "40200": {
@@ -264,7 +264,7 @@
         "long_message": "Payment Required"
     },
     "40201": {
-        "short_message": "Payment request failed",
+        "short_message": "Payment Request Failed",
         "long_message": "The parameters were valid but the request failed"
     },
     "40203": {
@@ -280,27 +280,27 @@
         "long_message": "Forbidden"
     },
     "40301": {
-        "short_message": "Forbidden",
+        "short_message": "Forbidden Action",
         "long_message": "The action was forbidden"
     },
     "40303": {
-        "short_message": "Invalid creditors account",
+        "short_message": "Invalid Creditors Account",
         "long_message": "The payment could not be initiated due to invalid creditors account"
     },
     "40304": {
-        "short_message": "Forbidden: Company is not registered",
+        "short_message": "Company Not Registred",
         "long_message": "The action was forbidden due to company not registered at mm"
     },
     "40305": {
-        "short_message": "Forbidden: Company has other supplier",
+        "short_message": "Company Has Supplier",
         "long_message": "The action was forbidden due to company having an other supplier"
     },
     "40306": {
-        "short_message": "Banner in use",
+        "short_message": "Banner In Use",
         "long_message": "The banner could not be deleted since it is used by one or more campaigns"
     },
     "40307": {
-        "short_message": "Irrevocable agreement",
+        "short_message": "Irrevocable Agreement",
         "long_message": "The agreement is not eligible for revocation"
     },
     "40308": {
@@ -308,15 +308,15 @@
         "long_message": "Follow the given URL to authorize a consent from the user: {url}"
     },
     "40309": {
-        "short_message": "Bank rejected",
+        "short_message": "Bank Rejected",
         "long_message": "Payment rejected by the bank or failed at bank's end"
     },
     "40310": {
-        "short_message": "Already paid",
+        "short_message": "Already Paid",
         "long_message": "Invoice has already been paid"
     },
     "40311": {
-        "short_message": "SCA failed",
+        "short_message": "SCA Failed",
         "long_message": "Strong Customer Authentication failed"
     },
     "40312": {
@@ -324,15 +324,15 @@
         "long_message": "The account used for payment initiation is unconsented"
     },
     "40313": {
-        "short_message": "On hold by bank",
+        "short_message": "On Hold By Bank",
         "long_message": "Payment is on hold by the bank and requires additional confirmation"
     },
     "40314": {
-        "short_message": "SCA cancelled",
+        "short_message": "SCA Cancelled",
         "long_message": "Strong Customer Authentication cancelled"
     },
     "40317": {
-        "short_message": "Guardians required",
+        "short_message": "Guardians Required",
         "long_message": "SSN is underage but can onboard with guardian approval"
     },
     "40318": {
@@ -340,7 +340,7 @@
         "long_message": "There is a minimum age and the SSN provided is underage"
     },
     "40319": {
-        "short_message": "Rejected by marketplace",
+        "short_message": "Rejected By Marketplace",
         "long_message": "Marketplace rejected the content of this request"
     },
     "40400": {
@@ -348,7 +348,7 @@
         "long_message": "The resource was not found at the given URI at this time"
     },
     "40401": {
-        "short_message": "No transactions found",
+        "short_message": "Transaction Not Found",
         "long_message": "No transactions for a subscription was found in the marketplace"
     },
     "40500": {
@@ -372,63 +372,63 @@
         "long_message": "Conflict"
     },
     "40901": {
-        "short_message": "User Mina Meddelanden Account state Conflict",
+        "short_message": "Mina Meddelanden State Conflict",
         "long_message": "This operation is not valid for the user's current Mina Meddelanden account state"
     },
     "40902": {
-        "short_message": "User account deactivated",
+        "short_message": "User Account Deactivated",
         "long_message": "This operation is not valid while the user account is deactivated"
     },
     "40903": {
-        "short_message": "Conflict with Payment Service",
+        "short_message": "Payment Service Conflict",
         "long_message": "This operation is not valid due to the user's state in the payment service"
     },
     "40904": {
-        "short_message": "Conflict",
+        "short_message": "State Conflict",
         "long_message": "This operation is not valid due to existing state"
     },
     "40905": {
-        "short_message": "Conflict",
+        "short_message": "Integration Root Conflict",
         "long_message": "This operation is not valid due to config.beehive.root already exists on another integration"
     },
     "40906": {
-        "short_message": "Conflict",
+        "short_message": "Integration Username Conflict",
         "long_message": "This operation is not valid due to config.ftp.username already exists on another integration"
     },
     "40907": {
-        "short_message": "Conflict",
+        "short_message": "Pending Payment Conflict",
         "long_message": "This operation is not valid due to pending payment"
     },
     "40908": {
-        "short_message": "Conflict",
+        "short_message": "Trashed Content Conflict",
         "long_message": "This operation is not valid due to content being trashed"
     },
     "40909": {
-        "short_message": "Conflict",
+        "short_message": "Integration Name Conflict",
         "long_message": "This operation is not valid due to name already exists on another integration"
     },
     "40910": {
-        "short_message": "Conflict",
+        "short_message": "Tenant Conflict",
         "long_message": "This operation is not valid since a tenant with this key already exists"
     },
     "40911": {
-        "short_message": "Invalid user phone number",
+        "short_message": "Invalid User Phone Number",
         "long_message": "Phone number stored for this user is invalid"
     },
     "40912": {
-        "short_message": "Conflict",
+        "short_message": "User Company Conflict",
         "long_message": "This operation is not valid due to user has an active company and being sole permissioner"
     },
     "40913": {
-        "short_message": "Vat number already exists",
+        "short_message": "VAT Number Already Exists",
         "long_message": "A company already exists with provided vat number"
     },
     "40914": {
-        "short_message": "Already created",
+        "short_message": "Receipts User Already Exists",
         "long_message": "User is already onboarded for receipts"
     },
     "40915": {
-        "short_message": "Orgnumber already exists",
+        "short_message": "Organization Number Already Exists",
         "long_message": "Orgnumber already exists"
     },
     "40916": {
@@ -436,23 +436,23 @@
         "long_message": "A payment is ongoing, try again later"
     },
     "40917": {
-        "short_message": "Pending mandate conflict",
+        "short_message": "Pending Mandate Conflict",
         "long_message": "This operation is not valid due to a pending mandate request"
     },
     "40918": {
-        "short_message": "Email already in use",
+        "short_message": "Email Conflict",
         "long_message": "This operation is not valid due to the email being in use"
     },
     "40919": {
-        "short_message": "Phone already in use",
+        "short_message": "Phone Number Conflict",
         "long_message": "This operation is not valid due to the phone number being in use"
     },
     "40920": {
-        "short_message": "Service terms not accepted",
+        "short_message": "Service Terms Not Accepted",
         "long_message": "The user has not accepted the terms for the requested service"
     },
     "40921": {
-        "short_message": "Inconsistent subscription state",
+        "short_message": "Inconsistent Subscription State",
         "long_message": "Inconsistent subscription state"
     },
     "41000": {
@@ -495,6 +495,26 @@
         "short_message": "Misdirected Request",
         "long_message": "Misdirected Request"
     },
+    "42200": {
+        "short_message": "Unprocessable Entity",
+        "long_message": "The request was well-formed but was unable to be followed due to semantic errors"
+    },
+    "42201": {
+        "short_message": "Unprocessable Entity",
+        "long_message": "The request was well-formed but was unable to be followed due to config.ftp.username not matching directory name in config.beehive.root"
+    },
+    "42202": {
+        "short_message": "Unprocessable Entity",
+        "long_message": "The user's email must be verified using OTP before making this request"
+    },
+    "42203": {
+        "short_message": "Unprocessable Entity",
+        "long_message": "The user's phone must be verified before making this request"
+    },
+    "42204": {
+        "short_message": "Unprocessable Entity",
+        "long_message": "The user's email and phone must be verified before making this request"
+    },
     "42210": {
         "short_message": "Unprocessable Entity",
         "long_message": "Payment Reference is invalid"
@@ -522,26 +542,6 @@
     "42216": {
         "short_message": "Unprocessable Entity",
         "long_message": "Transaction amount exceeds Swish limit agreed between bank and payer for given period"
-    },
-    "42200": {
-        "short_message": "Unprocessable Entity",
-        "long_message": "The request was well-formed but was unable to be followed due to semantic errors"
-    },
-    "42201": {
-        "short_message": "Unprocessable Entity",
-        "long_message": "The request was well-formed but was unable to be followed due to config.ftp.username not matching directory name in config.beehive.root"
-    },
-    "42202": {
-        "short_message": "Unprocessable Entity",
-        "long_message": "The user's email must be verified using OTP before making this request"
-    },
-    "42203": {
-        "short_message": "Unprocessable Entity",
-        "long_message": "The user's phone must be verified before making this request"
-    },
-    "42204": {
-        "short_message": "Unprocessable Entity",
-        "long_message": "The user's email and phone must be verified before making this request"
     },
     "42300": {
         "short_message": "Locked",
@@ -580,7 +580,7 @@
         "long_message": "The server encountered an unexpected condition which prevented it from fulfilling the request"
     },
     "50002": {
-        "short_message": "Failed to Create Covenant",
+        "short_message": "Covenant Creation Failed",
         "long_message": "The pdf service replied with a non 200 response code"
     },
     "50003": {
