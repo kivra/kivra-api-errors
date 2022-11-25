@@ -1,8 +1,8 @@
 # Kivra API Errors
 
 This repository contains a complete list of Kivra API Errors along with the
-corresponding error codes. It also contains `Erlang` and `Go` libraries that
-simplify working with Kivra API Errors in Kivra applications.
+corresponding error codes. It also contains `Erlang`, `Go` and `Python` libraries
+that simplify working with Kivra API Errors in Kivra applications.
 
 ## Kivra API Error Format
 
@@ -48,11 +48,11 @@ ok                               = kivra_api_errors:load(),
 
 ```
 
-By default, `ErrorPayload` is a `proplist`. To return a `map` instead, set
-`return_maps` to true:
+By default, `ErrorPayload` is a `proplist`. To return a `map` instead, provide
+the `return_maps` option on load:
 
 ```erlang
-{kivra_api_errors, [{return_maps, true}]}
+ok = kivra_api_errors:load(#{return_maps => true})
 ```
 
 ### Go
