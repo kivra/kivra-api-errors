@@ -543,6 +543,10 @@
         "short_message": "Unprocessable Entity",
         "long_message": "Transaction amount exceeds Swish limit agreed between bank and payer for given period"
     },
+    "42217": {
+        "short_message": "Unprocessable Entity",
+        "long_message": "Upload limit reached"
+    },
     "42300": {
         "short_message": "Locked",
         "long_message": "Locked"
