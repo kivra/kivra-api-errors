@@ -345,11 +345,11 @@
     },
     "40320": {
         "short_message": "Matched By Unverified Email Address",
-        "long_message": "The content was sent to your Kivra by using email address as an identifier. In order to open the content in Kivra you first need to verify your email address."
+        "long_message": "The content was sent to your Kivra by using email address as an identifier. In order to open the content in Kivra you first need to verify your email address"
     },
     "40321": {
         "short_message": "Matched By Unverified Phone Number",
-        "long_message": "The content was sent to your Kivra by using phone number as an identifier. In order to open the content in Kivra you first need to verify your phone number."
+        "long_message": "The content was sent to your Kivra by using phone number as an identifier. In order to open the content in Kivra you first need to verify your phone number"
     },
     "40400": {
         "short_message": "Not Found",
