@@ -343,6 +343,14 @@
         "short_message": "Rejected By Marketplace",
         "long_message": "Marketplace rejected the content of this request"
     },
+    "40320": {
+        "short_message": "Matched by unverified email address",
+        "long_message": "The content was sent to your Kivra by using email address as an identifier. In order to open the content in Kivra you first need to verify your email address."
+    },
+    "40321": {
+        "short_message": "Matched by unverified phone number",
+        "long_message": "The content was sent to your Kivra by using phone number as an identifier. In order to open the content in Kivra you first need to verify your phone number."
+    },
     "40400": {
         "short_message": "Not Found",
         "long_message": "The resource was not found at the given URI at this time"
