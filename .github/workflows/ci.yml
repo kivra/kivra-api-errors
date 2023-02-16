@@ -26,3 +26,23 @@ jobs:
     - name: Run python Tests 🏃🏾
       shell: bash
       run: make test-python
+
+  release:
+    if: github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'no-release:') == false
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Bump version and push tag
+      id: tag_version
+      uses: kivra/github-tag-action@v6.1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Create a GitHub release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.tag_version.outputs.new_tag }}
+        release_name: Release ${{ steps.tag_version.outputs.new_tag }}
+        body: ${{ steps.tag_version.outputs.changelog }}
