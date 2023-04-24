@@ -200,16 +200,16 @@
         "long_message": "One or more headers are malformed"
     },
     "40053": {
-        "short_message": "Unexpected Fields",
-        "long_message": "Fields that were submitted do not exist in this form"
+        "short_message": "Unexpected Forms Fields",
+        "long_message": "The submitted fields do not exist in this form"
     },
     "40054": {
-        "short_message": "Incorrect Field Values",
-        "long_message": "The type and value does not match for some fields"
+        "short_message": "Incorrect Forms Field Values",
+        "long_message": "The type and value for some fields do not match"
     },
     "40055": {
-        "short_message": "Missing Matched_By Field",
-        "long_message": "The mandatory matched_by field is missing"
+        "short_message": "Missing Forms Matched_By Field",
+        "long_message": "The mandatory matched_by field is missing in the response"
     },
     "40098": {
         "short_message": "Invalid Barcode",
@@ -344,8 +344,8 @@
         "long_message": "Strong Customer Authentication cancelled"
     },
     "40315": {
-        "short_message": "Resource Owner Mismatch",
-        "long_message": "The form can only be submitted by it's owner"
+        "short_message": "Forms Resource Owner Mismatch",
+        "long_message": "The form response can only be submitted by its owner"
     },
     "40316": {
         "short_message": "Expired Form",
@@ -488,7 +488,7 @@
         "long_message": "The user has not given consent for the requested service"
     },
     "40923": {
-        "short_message": "Response Exists",
+        "short_message": "Forms Response Exists",
         "long_message": "The form response has already been submitted"
     },
     "41000": {
@@ -646,10 +646,6 @@
     "50302": {
         "short_message": "Payment Service Temporarily Unavailable",
         "long_message": "Payment provider's service is temporarily unavailable, please try again later"
-    },
-    "50303": {
-        "short_message": "Forms Service Temporarily Unavailable",
-        "long_message": "Forms service is temporarily unavailable. Please try again later"
     },
     "50400": {
         "short_message": "Gateway Timeout",
