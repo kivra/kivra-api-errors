@@ -199,6 +199,18 @@
         "short_message": "Malformed Header",
         "long_message": "One or more headers are malformed"
     },
+    "40053": {
+        "short_message": "Unexpected Fields",
+        "long_message": "Fields that were submitted do not exist in this form"
+    },
+    "40054": {
+        "short_message": "Incorrect Field Values",
+        "long_message": "The type and value does not match for some fields"
+    },
+    "40055": {
+        "short_message": "Missing Matched_By Field",
+        "long_message": "The mandatory matched_by field is missing"
+    },
     "40098": {
         "short_message": "Invalid Barcode",
         "long_message": "The barcode could not be created due to invalid barcode type"
@@ -330,6 +342,14 @@
     "40314": {
         "short_message": "SCA Cancelled",
         "long_message": "Strong Customer Authentication cancelled"
+    },
+    "40315": {
+        "short_message": "Resource Owner Mismatch",
+        "long_message": "The form can only be submitted by it's owner"
+    },
+    "40316": {
+        "short_message": "Expired Form",
+        "long_message": "The form has expired, and responses cannot be submitted"
     },
     "40317": {
         "short_message": "Guardians Required",
@@ -466,6 +486,10 @@
     "40922": {
         "short_message": "Consent Not Given",
         "long_message": "The user has not given consent for the requested service"
+    },
+    "40923": {
+        "short_message": "Response Exists",
+        "long_message": "The form response has already been submitted"
     },
     "41000": {
         "short_message": "Gone",
@@ -622,6 +646,10 @@
     "50302": {
         "short_message": "Payment Service Temporarily Unavailable",
         "long_message": "Payment provider's service is temporarily unavailable, please try again later"
+    },
+    "50303": {
+        "short_message": "Forms Service Temporarily Unavailable",
+        "long_message": "Forms service is temporarily unavailable. Please try again later"
     },
     "50400": {
         "short_message": "Gateway Timeout",
