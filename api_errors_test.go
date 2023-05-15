@@ -5,7 +5,6 @@ import (
 )
 
 func TestGetErrorOK(t *testing.T) {
-	Load()
 	apiError, ok := FromCode("40000")
 
 	if !ok {
@@ -33,7 +32,6 @@ func TestGetErrorOK(t *testing.T) {
 }
 
 func TestDefaultFallbackExists(t *testing.T) {
-	Load()
 	_, ok := FromCode(Fallback)
 
 	if !ok {
@@ -42,7 +40,6 @@ func TestDefaultFallbackExists(t *testing.T) {
 }
 
 func TestFromStatusorFallback(t *testing.T) {
-	Load()
 	apiError := FromStatusOrFallback(400)
 
 	if apiError.Payload.Code != "40000" {
@@ -51,7 +48,6 @@ func TestFromStatusorFallback(t *testing.T) {
 }
 
 func TestReturnFallback(t *testing.T) {
-	Load()
 	apiError := FromCodeOrFallback("60000")
 
 	if apiError.Payload.Code != Fallback {
@@ -60,7 +56,6 @@ func TestReturnFallback(t *testing.T) {
 }
 
 func TestUnknownCode(t *testing.T) {
-	Load()
 	_, ok := FromCode("60000")
 
 	if ok {
