@@ -63,16 +63,13 @@ Add `kivra-api-errors` as a dependency to your project:
 go get github.com/kivra/kivra-api-errors
 ```
 
-Call the `Load` function on application startup to load error definitions
-from disk. Afterwards, use the `FromCode` function to expand an error
-code to an `ApiError`:
+Use the `FromCode` function to expand an error code to an `ApiError`:
 
 ```go
 import (
 	apiErrors "github.com/kivra/kivra-api-errors"
 )
 
-apiErrors.Load()
 apiError, ok := apiErrors.FromCode("40001")
 ```
 
