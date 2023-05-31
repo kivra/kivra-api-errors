@@ -2,13 +2,20 @@
 -module(kivra_api_errors).
 
 %%%_* Exports =================================================================
--export([load/0, load/1, from_code/1, from_code/2]).
+-export([
+  load/0,
+  load/1,
+  from_code/1, from_code/2,
+  with_details/2
+]).
 
 %%%_* Types ===================================================================
--type status_code() :: 400..599.
--type payload_map() :: #{binary() := binary()}.
--type payload_kv()  :: [{binary(), binary()}].
--type config()      :: #{atom() := term()}.
+-type config()        :: #{atom() := term()}.
+-type error_code()    :: binary() | pos_integer().
+-type error_details() :: #{binary() := binary()}.
+-type payload_map()   :: #{binary() := binary()}.
+-type payload_kv()    :: [{binary(), binary()}].
+-type status_code()   :: 400..599.
 
 %%%_* Code ====================================================================
 %%%_* API ---------------------------------------------------------------------
@@ -44,6 +51,16 @@ from_code(ErrorCode, LongMessage) ->
   case from_code(ErrorCode) of
     {ok, {HTTPStatus, Payload}} ->
       {ok, {HTTPStatus, set(<<"long_message">>, LongMessage, Payload)}};
+    {error, notfound} = Error ->
+      Error
+  end.
+
+-spec with_details(error_code(), error_details()) ->
+  {ok, {status_code(), payload_map() | payload_kv()}} | {error, notfound}.
+with_details(ErrorCode, ErrorDetails) ->
+  case from_code(ErrorCode) of
+    {ok, {HTTPStatus, Payload}} ->
+      {ok, {HTTPStatus, set(<<"details">>, ErrorDetails, Payload)}};
     {error, notfound} = Error ->
       Error
   end.
@@ -86,6 +103,14 @@ get_error_map_overwrite_long_message_ok_test() ->
               , <<"short_message">> => <<"Bad Request">>
               , <<"long_message">> => <<"Long Message">> },
   ?assertEqual({ok, {400, Expected}}, from_code(<<"40000">>, <<"Long Message">>)).
+
+get_error_map_with_details_ok_test() ->
+    ok       = load(#{return_maps => true}),
+    Expected = #{ <<"code">> => <<"40000">>
+                , <<"short_message">> => <<"Bad Request">>
+                , <<"long_message">> => <<"The server cannot or will not process the request due to an apparent client error">>
+                , <<"details">> => #{<<"k">> => <<"v">>} },
+    ?assertEqual({ok, {400, Expected}}, with_details(<<"40000">>, #{<<"k">> => <<"v">>})).
 
 get_error_proplist_ok_test() ->
   ok       = load(),
