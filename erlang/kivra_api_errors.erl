@@ -5,8 +5,7 @@
 -export([
   load/0,
   load/1,
-  from_code/1, from_code/2, from_code/3,
-  with_details/2
+  from_code/1, from_code/2, from_code/3
 ]).
 
 %%%_* Types ===================================================================
@@ -67,16 +66,6 @@ from_code(ErrorCode, LongMessage, Details) when is_map(Details) ->
       Error
   end.
 
--spec with_details(error_code(), error_details()) ->
-  {ok, {status_code(), payload_map() | payload_kv()}} | {error, notfound}.
-with_details(ErrorCode, ErrorDetails) ->
-  case from_code(ErrorCode) of
-    {ok, {HTTPStatus, Payload}} ->
-      {ok, {HTTPStatus, set(<<"details">>, ErrorDetails, Payload)}};
-    {error, notfound} = Error ->
-      Error
-  end.
-
 %%%_* Private -----------------------------------------------------------------
 lookup(ErrorCode) ->
   case persistent_term:get(key(ErrorCode), undefined) of
@@ -123,14 +112,6 @@ get_error_map_overwrite_long_message_add_details_ok_test() ->
               , <<"long_message">> => <<"Custom long message">>
               , <<"details">> => #{<<"k">> => <<"v">>} },
   ?assertEqual({ok, {400, Expected}}, from_code(<<"40000">>, <<"Custom long message">>, #{<<"k">> => <<"v">>})).
-
-get_error_map_with_details_ok_test() ->
-  ok       = load(#{return_maps => true}),
-  Expected = #{ <<"code">> => <<"40000">>
-              , <<"short_message">> => <<"Bad Request">>
-              , <<"long_message">> => <<"The server cannot or will not process the request due to an apparent client error">>
-              , <<"details">> => #{<<"k">> => <<"v">>} },
-  ?assertEqual({ok, {400, Expected}}, with_details(<<"40000">>, #{<<"k">> => <<"v">>})).
 
 get_error_proplist_ok_test() ->
   ok       = load(),
