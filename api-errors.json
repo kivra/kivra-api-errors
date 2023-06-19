@@ -195,6 +195,10 @@
         "short_message": "Invalid Barcode",
         "long_message": "The barcode could not be created due to invalid barcode type"
     },
+    "40099": {
+        "short_message": "Forms Not Supported",
+        "long_message": "Forms is only supported in v2 content creation, not supported in v1 content creation"
+    },
     "40100": {
         "short_message": "Unauthorized",
         "long_message": "Unauthorized"
@@ -250,10 +254,6 @@
     "40113": {
         "short_message": "No User With ID",
         "long_message": "Contact us to enroll, make sure to include your ID"
-    },
-    "40114": {
-        "short_message": "Forms Not Supported",
-        "long_message": "Forms is only supported in v2 content creation, not supported in v1 content creation"
     },
     "40200": {
         "short_message": "Payment Required",
