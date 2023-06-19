@@ -251,6 +251,10 @@
         "short_message": "No User With ID",
         "long_message": "Contact us to enroll, make sure to include your ID"
     },
+    "40114": {
+        "short_message": "Forms is not supported",
+        "long_message": "Forms is only supported in v2 content creation, not supported in v1 content creation"
+    },
     "40200": {
         "short_message": "Payment Required",
         "long_message": "Payment Required"
