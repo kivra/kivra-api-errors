@@ -252,7 +252,7 @@
         "long_message": "Contact us to enroll, make sure to include your ID"
     },
     "40114": {
-        "short_message": "Forms not supported",
+        "short_message": "Forms Not Supported",
         "long_message": "Forms is only supported in v2 content creation, not supported in v1 content creation"
     },
     "40200": {
