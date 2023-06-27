@@ -191,13 +191,13 @@
         "short_message": "Malformed Header",
         "long_message": "One or more headers are malformed"
     },
+    "40053": {
+        "short_message": "Forms Not Supported",
+        "long_message": "Forms is only supported in v2 content creation, not supported in v1 content creation"
+    },
     "40098": {
         "short_message": "Invalid Barcode",
         "long_message": "The barcode could not be created due to invalid barcode type"
-    },
-    "40099": {
-        "short_message": "Forms Not Supported",
-        "long_message": "Forms is only supported in v2 content creation, not supported in v1 content creation"
     },
     "40100": {
         "short_message": "Unauthorized",
