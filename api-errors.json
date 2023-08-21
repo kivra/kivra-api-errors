@@ -464,8 +464,8 @@
         "long_message": "The user has not given consent for the requested service"
     },
     "40923": {
-        "long_message" => "Subscription is in billing retry",
-        "short_message" => "Subscription is in billing retry"
+        "long_message": "Subscription is in billing retry",
+        "short_message": "Subscription is in billing retry"
     },
     "41000": {
         "short_message": "Gone",
