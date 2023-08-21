@@ -465,7 +465,7 @@
     },
     "40923": {
         "long_message": "Subscription is in billing retry",
-        "short_message": "Subscription is in billing retry"
+        "short_message": "Subscription in billing retry"
     },
     "41000": {
         "short_message": "Gone",
