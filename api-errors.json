@@ -195,6 +195,10 @@
         "short_message": "Forms Not Supported",
         "long_message": "Forms is only supported in v2 content creation, not supported in v1 content creation"
     },
+    "40054": {
+        "short_message": "Too Many Items",
+        "long_message": "Too many items in request payload"
+    },
     "40098": {
         "short_message": "Invalid Barcode",
         "long_message": "The barcode could not be created due to invalid barcode type"
