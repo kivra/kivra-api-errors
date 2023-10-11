@@ -475,6 +475,14 @@
         "long_message": "Subscription is in billing retry",
         "short_message": "Subscription In Billing Retry"
     },
+    "40924": {
+        "short_message": "Invitee Already Collaborator",
+        "long_message": "Invitee is already collaborator in folder"
+    },
+    "40925": {
+        "short_message": "Invitee Already Invited",
+        "long_message": "Invitee is already invited to folder"
+    },
     "41000": {
         "short_message": "Gone",
         "long_message": "The resource is gone"
@@ -566,6 +574,10 @@
     "42217": {
         "short_message": "Unprocessable Entity",
         "long_message": "Upload limit reached"
+    },
+    "42218": {
+        "short_message": "Invitee Not Trusted",
+        "long_message": "Invitee needs to be a trusted contact with the inviter"
     },
     "42300": {
         "short_message": "Locked",
