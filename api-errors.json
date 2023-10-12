@@ -199,13 +199,21 @@
         "short_message": "Too Many Items",
         "long_message": "Too many items in request payload"
     },
+    "40055": {
+        "short_message": "Invitee Same As Inviter",
+        "long_message": "Invitee is the same user as the inviter"
+    },
+    "40056": {
+        "short_message": "Max Folder Collaborators",
+        "long_message": "Maximum number of collaborators for the folder has been reached"
+    },
+    "40057": {
+        "short_message": "Max User Invitations",
+        "long_message": "Maximum number of invitations for the user has been reached"
+    },
     "40098": {
         "short_message": "Invalid Barcode",
         "long_message": "The barcode could not be created due to invalid barcode type"
-    },
-    "40099": {
-        "short_message": "Invitee Inviter",
-        "long_message": "Invitee is the same user as the inviter"
     },
     "40100": {
         "short_message": "Unauthorized",
@@ -358,14 +366,6 @@
     "40322": {
         "short_message": "Rejected By Creditsafe",
         "long_message": "The request to Creditsafe for the user was rejected"
-    },
-    "40323": {
-        "short_message": "Max Folder Collaborators",
-        "long_message": "Maximum number of collaborators for the folder has been reached"
-    },
-    "40324": {
-        "short_message": "Max User Invitations",
-        "long_message": "Maximum number of invitations for the user has been reached"
     },
     "40400": {
         "short_message": "Not Found",
@@ -592,8 +592,8 @@
         "long_message": "Invitee needs to be a trusted contact with the inviter"
     },
     "42219": {
-      "short_message": "Invitee Already Trusted Contact",
-      "long_message": "Invitee is already a trusted contact to the inviter"
+        "short_message": "Invitee Already Trusted Contact",
+        "long_message": "Invitee is already a trusted contact to the inviter"
     },
     "42300": {
         "short_message": "Locked",
