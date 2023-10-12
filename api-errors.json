@@ -199,6 +199,18 @@
         "short_message": "Too Many Items",
         "long_message": "Too many items in request payload"
     },
+    "40055": {
+        "short_message": "Invitee Same As Inviter",
+        "long_message": "Invitee is the same user as the inviter"
+    },
+    "40056": {
+        "short_message": "Max Folder Collaborators",
+        "long_message": "Maximum number of collaborators for the folder has been reached"
+    },
+    "40057": {
+        "short_message": "Max User Invitations",
+        "long_message": "Maximum number of invitations for the user has been reached"
+    },
     "40098": {
         "short_message": "Invalid Barcode",
         "long_message": "The barcode could not be created due to invalid barcode type"
@@ -475,6 +487,14 @@
         "long_message": "Subscription is in billing retry",
         "short_message": "Subscription In Billing Retry"
     },
+    "40924": {
+        "short_message": "Invitee Already Collaborator",
+        "long_message": "Invitee is already collaborator in folder"
+    },
+    "40925": {
+        "short_message": "Invitee Already Invited",
+        "long_message": "Invitee is already invited to folder"
+    },
     "41000": {
         "short_message": "Gone",
         "long_message": "The resource is gone"
@@ -566,6 +586,14 @@
     "42217": {
         "short_message": "Unprocessable Entity",
         "long_message": "Upload limit reached"
+    },
+    "42218": {
+        "short_message": "Invitee Not Trusted",
+        "long_message": "Invitee needs to be a trusted contact with the inviter"
+    },
+    "42219": {
+        "short_message": "Invitee Already Trusted Contact",
+        "long_message": "Invitee is already a trusted contact to the inviter"
     },
     "42300": {
         "short_message": "Locked",
