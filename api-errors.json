@@ -367,6 +367,18 @@
         "short_message": "Rejected By Creditsafe",
         "long_message": "The request to Creditsafe for the user was rejected"
     },
+    "40323": {
+        "short_message": "Max Folder Collaborators",
+        "long_message": "Maximum number of collaborators for the folder has been reached"
+    },
+    "40324": {
+        "short_message": "Max User Invitations",
+        "long_message": "Maximum number of invitations for the user has been reached"
+    },
+    "40325": {
+        "short_message": "Not Items Owner",
+        "long_message": "User has to be owner of all items"
+    },
     "40400": {
         "short_message": "Not Found",
         "long_message": "The resource was not found at the given URI at this time"
