@@ -367,6 +367,10 @@
         "short_message": "Rejected By Creditsafe",
         "long_message": "The request to Creditsafe for the user was rejected"
     },
+    "40323": {
+        "short_message": "Not Items Owner",
+        "long_message": "User has to be owner of all items"
+    },
     "40400": {
         "short_message": "Not Found",
         "long_message": "The resource was not found at the given URI at this time"
