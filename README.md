@@ -127,3 +127,25 @@ The following message contains the same information, but is more concise:
 Run the linter to validate the error definitions in [`api-errors.json`](./api-errors.json):
 
     make lint
+
+## Export for use in `developer.kivra.com`
+
+A helper function is made available to allow copy-pasting the entire list for
+acceptance in <https://developer.kivra.com>.
+
+### Erlang
+
+Boot up an Erlang shell
+
+```console
+rebar3 shell
+```
+
+Call the `kivra_api_errors:to_developer_kivra_com/0` function:
+
+```erlang
+kivra_api_errors:to_developer_kivra_com().
+```
+
+Whatever is between `<copy-paste>` and `</copy-paste>` is deemed usable
+(YML-formatted) in <https://developer.kivra.com>.

@@ -5,7 +5,8 @@
 -export([
   load/0,
   load/1,
-  from_code/1, from_code/2, from_code/3
+  from_code/1, from_code/2, from_code/3,
+  to_developer_kivra_com/0
 ]).
 
 %%%_* Types ===================================================================
@@ -36,6 +37,26 @@ load(Config) ->
     Error ->
       Error
   end.
+
+-spec to_developer_kivra_com() -> ok.
+to_developer_kivra_com() ->
+  ErrorsFile = filename:join([code:priv_dir(?MODULE), <<"api-errors.json">>]),
+  {ok, ErrorsAsJSON} = file:read_file(ErrorsFile),
+  Errors = jiffy:decode(ErrorsAsJSON, [return_maps]),
+  ErrorsList = maps:to_list(Errors),
+  SortedErrorsList = lists:sort(fun ({CodeLeft, _}, {CodeRight, _}) -> CodeLeft < CodeRight end, ErrorsList),
+
+  io:format("Copy-paste to developer.kivra.com's swagger.yml~n"),
+  io:format("<copy-paste>~n"),
+  io:format("    | Code | Short Message | Long Message |~n"),
+  io:format("    | ---- | ------------- | ------------ |~n"),
+  lists:foreach(
+    fun ({Code, #{<<"short_message">> := ShortMessage, <<"long_message">> := LongMessage}}) ->
+      io:format("    | ~ts | ~ts | ~ts |~n", [Code, ShortMessage, LongMessage])
+    end,
+    SortedErrorsList
+  ),
+  io:format("</copy-paste>~n").
 
 -spec from_code(binary() | pos_integer()) -> {ok, {status_code(), payload_map() | payload_kv()}} | {error, notfound}.
 from_code(ErrorCode) when is_integer(ErrorCode) ->
