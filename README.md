@@ -130,21 +130,13 @@ Run the linter to validate the error definitions in [`api-errors.json`](./api-er
 
 ## Export for use in `developer.kivra.com`
 
-A helper function is made available to allow copy-pasting the entire list for
+A `util` script is made available to allow copy-pasting the entire list for
 acceptance in <https://developer.kivra.com>.
 
-### Erlang
-
-Boot up an Erlang shell
+For this you need to have [`jq`](https://github.com/jqlang/jq#installation) installed.
 
 ```console
-rebar3 shell
-```
-
-Call the `kivra_api_errors:to_developer_kivra_com/0` function:
-
-```erlang
-kivra_api_errors:to_developer_kivra_com().
+./util/to-developer.kivra.com.sh
 ```
 
 Whatever is between `<copy-paste>` and `</copy-paste>` is deemed usable
