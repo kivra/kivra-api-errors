@@ -127,3 +127,17 @@ The following message contains the same information, but is more concise:
 Run the linter to validate the error definitions in [`api-errors.json`](./api-errors.json):
 
     make lint
+
+## Export for use in `developer.kivra.com`
+
+A `util` script is made available to allow copy-pasting the entire list for
+acceptance in <https://developer.kivra.com>.
+
+For this you need to have [`jq`](https://github.com/jqlang/jq#installation) installed.
+
+```console
+./util/to-developer.kivra.com.sh
+```
+
+Whatever is between `<copy-paste>` and `</copy-paste>` is deemed usable
+(YML-formatted) in <https://developer.kivra.com>.
