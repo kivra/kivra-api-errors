@@ -5,7 +5,8 @@
 -export([
   load/0,
   load/1,
-  from_code/1, from_code/2, from_code/3
+  from_code/1, from_code/2, from_code/3,
+  header/0
 ]).
 
 %%%_* Types ===================================================================
@@ -65,6 +66,9 @@ from_code(ErrorCode, LongMessage, Details) when is_map(Details) ->
     {error, notfound} = Error ->
       Error
   end.
+
+-spec header() -> binary().
+header() -> <<"x-error-code">>.
 
 %%%_* Private -----------------------------------------------------------------
 lookup(ErrorCode) ->
