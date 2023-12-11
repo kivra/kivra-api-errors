@@ -253,7 +253,7 @@
     },
     "40109": {
         "short_message": "Sendrequest Or Share Already Exists",
-        "long_message": "An already existing Sendrequest exists or is blocked"
+        "long_message": "A Sendrequest or Share already exists, only one per sender and receiver combination is allowed"
     },
     "40110": {
         "short_message": "Missing Print Integration",
