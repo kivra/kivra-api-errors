@@ -211,6 +211,10 @@
         "short_message": "Max User Invitations",
         "long_message": "Maximum number of invitations for the user has been reached"
     },
+    "40058": {
+        "short_message": "Invalid SSN",
+        "long_message": "The provided SSN(personnummer) is not valid"
+    },
     "40098": {
         "short_message": "Invalid Barcode",
         "long_message": "The barcode could not be created due to invalid barcode type"
