@@ -345,7 +345,7 @@
     },
     "40315": {
         "short_message": "SCA Required",
-        "long_message": "Strong Customer Authentication required. Follow the given URL to authenticate the payment action."
+        "long_message": "Strong Customer Authentication required. Follow the given URL to authenticate the payment action"
     },
     "40317": {
         "short_message": "Guardians Required",
