@@ -343,6 +343,10 @@
         "short_message": "SCA Cancelled",
         "long_message": "Strong Customer Authentication cancelled"
     },
+    "40315": {
+        "short_message": "SCA Required",
+        "long_message": "Strong Customer Authentication required. Follow the given URL to authenticate the payment action."
+    },
     "40317": {
         "short_message": "Guardians Required",
         "long_message": "SSN is underage but can onboard with guardian approval"
