@@ -377,7 +377,7 @@
     },
     "40324": {
         "short_message": "Client Upgrade Required",
-        "long_message": "The client need to be upgraded to a new version to use this service"
+        "long_message": "The client needs to be upgraded to a new version to use this service"
     },
     "40400": {
         "short_message": "Not Found",
