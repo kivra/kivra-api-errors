@@ -375,6 +375,10 @@
         "short_message": "Not Items Owner",
         "long_message": "User has to be owner of all items"
     },
+    "40324": {
+        "short_message": "Client Upgrade Required",
+        "long_message": "The client needs to be upgraded to a new version to use this service"
+    },
     "40400": {
         "short_message": "Not Found",
         "long_message": "The resource was not found at the given URI at this time"
