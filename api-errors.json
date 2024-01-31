@@ -607,6 +607,10 @@
         "short_message": "Invitee Already Trusted Contact",
         "long_message": "Invitee is already a trusted contact to the inviter"
     },
+    "42220": {
+        "short_message": "Alias Verification Failed",
+        "long_message": "Verification of the Swish alias failed, indicating that Kivra is not a Technical Provider for it"
+    },
     "42300": {
         "short_message": "Locked",
         "long_message": "Locked"
