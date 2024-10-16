@@ -643,6 +643,10 @@
         "short_message": "Unavailable For Legal Reasons",
         "long_message": "Unavailable For Legal Reasons"
     },
+    "49900": {
+        "short_message": "Client Closed Request",
+        "long_message": "Client closed the connection before the server answered the request"
+    },
     "50000": {
         "short_message": "Internal Server Error",
         "long_message": "The server encountered an unexpected condition which prevented it from fulfilling the request"
