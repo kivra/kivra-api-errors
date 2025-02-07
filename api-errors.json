@@ -381,7 +381,7 @@
     },
     "40325": {
         "short_message": "Content Sealed",
-        "long_message": "The client needs to be fetch the seal metadata and unseal the content"
+        "long_message": "The client needs to fetch the seal metadata and unseal the content"
     },
     "40400": {
         "short_message": "Not Found",
