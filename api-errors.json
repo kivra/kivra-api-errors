@@ -379,6 +379,10 @@
         "short_message": "Client Upgrade Required",
         "long_message": "The client needs to be upgraded to a new version to use this service"
     },
+    "40325": {
+        "short_message": "Content Sealed",
+        "long_message": "The client needs to fetch the seal metadata and unseal the content"
+    },
     "40400": {
         "short_message": "Not Found",
         "long_message": "The resource was not found at the given URI at this time"
