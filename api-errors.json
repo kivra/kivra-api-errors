@@ -383,6 +383,10 @@
         "short_message": "Content Sealed",
         "long_message": "The client needs to fetch the seal metadata and unseal the content"
     },
+    "40326": {
+        "short_message": "Unseal By Receiver Only",
+        "long_message": "Only the intended receiver can unseal this content first. Once opened, users from shared inboxes may access it"
+    },
     "40400": {
         "short_message": "Not Found",
         "long_message": "The resource was not found at the given URI at this time"
