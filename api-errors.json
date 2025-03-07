@@ -516,7 +516,7 @@
         "long_message": "Invitee is already invited to folder"
     },
     "40926": {
-        "short_message": "Invalid Merchnat Reference",
+        "short_message": "Invalid Merchant Reference",
         "long_message": "Merchant reference belongs to an inactived mandate"
     },
     "41000": {
