@@ -517,7 +517,7 @@
     },
     "40926": {
         "short_message": "Invalid Merchant Reference",
-        "long_message": "Merchant reference belongs to an inactived mandate"
+        "long_message": "Merchant reference belongs to an inactive mandate"
     },
     "41000": {
         "short_message": "Gone",
