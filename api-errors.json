@@ -623,6 +623,10 @@
         "short_message": "Alias Verification Failed",
         "long_message": "Verification of the Swish alias failed, indicating that Kivra is not a Technical Provider for it"
     },
+    "42221": {
+        "short_message": "Unprocessable Entity",
+        "long_message": "Unsupported content type for retained"
+    },
     "42300": {
         "short_message": "Locked",
         "long_message": "Locked"
