@@ -213,7 +213,7 @@
     },
     "40058": {
         "short_message": "Mobile Application Update Required",
-        "long_message": "The request can't be processed due to unsupported mobile application version. The mobile application must be updated."
+        "long_message": "The request can't be processed due to unsupported mobile application version. The mobile application must be updated"
     },
     "40059": {
         "short_message": "Schema Violation",
