@@ -211,7 +211,7 @@
         "short_message": "Max User Invitations",
         "long_message": "Maximum number of invitations for the user has been reached"
     },
-    "40058": {
+    "40059": {
         "short_message": "Schema Violation",
         "long_message": "The provided data is invalid or does not match the required format"
     },
