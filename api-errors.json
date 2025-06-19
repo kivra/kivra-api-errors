@@ -211,6 +211,10 @@
         "short_message": "Max User Invitations",
         "long_message": "Maximum number of invitations for the user has been reached"
     },
+    "40058": {
+        "short_message": "Mobile Application Update Required",
+        "long_message": "The request can't be processed due to unsupported mobile application version. The mobile application must be updated"
+    },
     "40059": {
         "short_message": "Schema Violation",
         "long_message": "The provided data is invalid or does not match the required format"
