@@ -395,6 +395,10 @@
         "short_message": "Unseal By Receiver Only",
         "long_message": "Only the intended receiver can unseal this content first. Once opened, users from shared inboxes may access it"
     },
+    "40327": {
+        "short_message": "Matched By Non-SSN",
+        "long_message": "The user was matched using an identifier other than SSN"
+    },
     "40400": {
         "short_message": "Not Found",
         "long_message": "The resource was not found at the given URI at this time"
