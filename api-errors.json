@@ -397,7 +397,7 @@
     },
     "40327": {
         "short_message": "Matched By Non-SSN",
-        "long_message": "The content was sent by an identifier that was not an SSN"
+        "long_message": "The user was matched using an identifier other than SSN"
     },
     "40400": {
         "short_message": "Not Found",
