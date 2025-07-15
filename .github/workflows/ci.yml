@@ -79,9 +79,13 @@ jobs:
 
   release:
     if: github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'no-release:') == false
-    needs: build
     runs-on: ubuntu-24.04
     steps:
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      with:
+        fetch-depth: 0
+        token: ${{secrets.GITHUB_TOKEN}}
+
     - name: Bump version and push tag
       id: tag-version
       uses: mathieudutour/github-tag-action@a22cf08638b34d5badda920f9daf6e72c477b07b # v6.2
@@ -91,7 +95,7 @@ jobs:
         release_branches: main
 
     - name: Create a GitHub release
-      run:
+      run: |
         if ! command -v gh >/dev/null 2>&1; then
           curl -sS https://webi.sh/gh | sh
         fi
