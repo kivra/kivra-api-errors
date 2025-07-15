@@ -34,7 +34,11 @@ jobs:
 
     - name: Run Erlang Tests 🏃🏾
       shell: bash
-      run: make test-erl
+      run: |
+        # Since we can't force CI to run after pushing rebar.lock
+        # we remove it to make sure we test over rebar.config
+        rm -f rebar.lock
+        make test-erl
 
     - name: Run Go Tests 🏃🏽‍♀️
       shell: bash
