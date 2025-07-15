@@ -1,16 +1,21 @@
-on: [push]
+---
+name: ci
+
+on:
+  # for feature branches
+  pull_request:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ (github.ref != 'refs/heads/main') && format('{0}-{1}', github.ref, github.workflow) || github.run_id }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4.2.2
 
-    - uses: erlef/setup-beam@v1.18.0
+    - uses: erlef/setup-beam@a6e26b22319003294c58386b6f25edbc7336819a # v1.18.0
       with:
         otp-version: 27.3.3
         rebar3-version: 3.24.0
@@ -39,19 +44,21 @@ jobs:
   release:
     if: github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'no-release:') == false
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
     - name: Bump version and push tag
-      id: tag_version
-      uses: kivra/github-tag-action@v6.1
+      id: tag-version
+      uses: mathieudutour/github-tag-action@a22cf08638b34d5badda920f9daf6e72c477b07b # v6.2
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        dry_run: true
+        release_branches: main
 
     - name: Create a GitHub release
-      uses: actions/create-release@v1
+      run:
+        if ! command -v gh >/dev/null 2>&1; then
+          curl -sS https://webi.sh/gh | sh
+        fi
+        gh release create ${{ steps.tag-version.outputs.new_tag }} --generate-notes --latest
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ steps.tag_version.outputs.new_tag }}
-        release_name: Release ${{ steps.tag_version.outputs.new_tag }}
-        body: ${{ steps.tag_version.outputs.changelog }}
