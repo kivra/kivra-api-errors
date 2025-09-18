@@ -711,6 +711,10 @@
         "short_message": "Gateway Timeout",
         "long_message": "Gateway Timeout"
     },
+    "50401": {
+        "short_message": "Payment Polling Timeout",
+        "long_message": "Payment provider did not return a final status in time"
+    },
     "50500": {
         "short_message": "HTTP Version Not Supported",
         "long_message": "HTTP Version Not Supported"
