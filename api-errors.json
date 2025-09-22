@@ -711,6 +711,10 @@
         "short_message": "Gateway Timeout",
         "long_message": "Gateway Timeout"
     },
+    "50401": {
+        "short_message": "Polling Timeout",
+        "long_message": "Polling Timeout"
+    },
     "50500": {
         "short_message": "HTTP Version Not Supported",
         "long_message": "HTTP Version Not Supported"
