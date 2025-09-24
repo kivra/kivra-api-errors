@@ -1,8 +1,17 @@
-# Kivra API Errors
+# Kivra API Errors 
 
 This repository contains a complete list of Kivra API Errors along with the
 corresponding error codes. It also contains `Erlang`, `Go` and `Python` libraries
 that simplify working with Kivra API Errors in Kivra applications.
+
+## Shared Repository 
+
+🇫🇮 💚 🇸🇪
+
+This is a collaboration between Kivra Finland and Sweden. Since our app clients
+share codebases, it makes sense for them to consume the same API Error
+specification, even though each backend will primarily return error codes
+relevant to its own functionality.
 
 ## Kivra API Error Format
 
