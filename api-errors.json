@@ -400,8 +400,8 @@
         "long_message": "The user was matched using an identifier other than SSN"
     },
     "40328": {
-        "short_message": "Insufficient Authorization Level",
-        "long_message": "The access token has insufficient authorization level (e.g., security score) for this action"
+        "short_message": "Insufficient Security Score",
+        "long_message": "The requested resource requires a greater security score than the one associated with the supplied access token"
     },
     "40400": {
         "short_message": "Not Found",
