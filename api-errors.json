@@ -403,6 +403,10 @@
         "short_message": "Insufficient Security Score",
         "long_message": "The requested resource requires a greater security score than the one associated with the supplied access token"
     },
+    "40329": {
+        "short_message": "Invoice Connected",
+        "long_message": "An invoice that is connected to a bank cannot be paid through Kivra"
+    },
     "40400": {
         "short_message": "Not Found",
         "long_message": "The resource was not found at the given URI at this time"
