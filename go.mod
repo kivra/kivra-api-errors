@@ -1,3 +1,3 @@
 module github.com/kivra/kivra-api-errors
 
-go 1.17
+go 1.25
