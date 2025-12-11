@@ -288,7 +288,7 @@
         "long_message": "The parameters were valid but the request failed"
     },
     "40202": {
-        "short_message": "Invalid coupon code",
+        "short_message": "Invalid Coupon Code",
         "long_message": "The coupon code is not valid and the payment could not be processed"
     },
     "40203": {
