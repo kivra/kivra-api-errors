@@ -287,6 +287,10 @@
         "short_message": "Payment Request Failed",
         "long_message": "The parameters were valid but the request failed"
     },
+    "40202": {
+        "short_message": "Invalid Coupon Code",
+        "long_message": "The coupon code is not valid and the payment could not be processed"
+    },
     "40203": {
         "short_message": "Insufficient Funds",
         "long_message": "User's payment account does not have sufficient funds to complete the payment"
