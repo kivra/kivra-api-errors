@@ -4,6 +4,11 @@
     "config:best-practices",
     ":disableDigestUpdates"
   ],
+  "env": {
+    "GOPRIVATE": "github.com/kivra",
+    "GONOSUMDB": "github.com/kivra",
+    "GONOPROXY": "github.com/kivra"
+  },
   "postUpdateOptions": [
     "gomodTidy"
   ],
