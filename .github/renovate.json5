@@ -29,6 +29,17 @@
     enabled: true,
   },
 
+  // Go-specific options
+  env: {
+    "GOPRIVATE": "github.com/kivra",
+    "GONOSUMDB": "github.com/kivra",
+    "GONOPROXY": "github.com/kivra",
+  },
+
+  postUpdateOptions: [
+    "gomodTidy",
+  ],
+
   // Standard managers
   "renovate-config": {
     enabled: false,
@@ -67,16 +78,6 @@
       matchCurrentVersion: "/^v?0/",
       automerge: false,
     },
-  ],
-  env: {
-    "GOPRIVATE": "github.com/kivra",
-    "GONOSUMDB": "github.com/kivra",
-    "GONOPROXY": "github.com/kivra",
-  },
-  postUpdateOptions: [
-    "gomodTidy",
-  ],
-  packageRules: [
     {
       matchManagers: [
         "gomod",
@@ -87,6 +88,8 @@
       enabled: false,
     },
   ],
+
+  // Non-standard managers
   customManagers: [
     {
       description: "Match Hex.pm-based dependencies in rebar.config",
