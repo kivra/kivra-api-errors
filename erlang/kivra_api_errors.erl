@@ -33,7 +33,7 @@ load(Config) ->
         HTTPStatus = binary_to_integer(binary:part(Code, 0, 3)),
         Payload    = format(LongShort#{<<"code">> => Code}, ReturnMaps),
         persistent_term:put(key(Code), {HTTPStatus, Payload})
-      end, ok, jiffy:decode(Json, [return_maps]));
+      end, ok, json:decode(Json));
     Error ->
       Error
   end.
