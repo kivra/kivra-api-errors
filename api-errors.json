@@ -186,11 +186,11 @@
     "40048": {
         "short_message": "Invalid Label",
         "long_message": "The supplied labels does not match the required format"
-    },    
+    },
     "40049": {
         "short_message": "Invalid Value For Expiration Days",
         "long_message": "Must be an integer within the allowed range, representing the number of days an agreement will remain in the system before it expires"
-    }, 
+    },
     "40052": {
         "short_message": "Malformed Header",
         "long_message": "One or more headers are malformed"
@@ -222,6 +222,10 @@
     "40059": {
         "short_message": "Schema Violation",
         "long_message": "The provided data is invalid or does not match the required format"
+    },
+    "40060": {
+        "short_message": "Unreachable Email Address",
+        "long_message": "Email address not reachable"
     },
     "40098": {
         "short_message": "Invalid Barcode",
