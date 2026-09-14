@@ -223,7 +223,7 @@
         "short_message": "Schema Violation",
         "long_message": "The provided data is invalid or does not match the required format"
     },
-    "40060": {
+    "40061": {
         "short_message": "Unreachable Email Address",
         "long_message": "Email address not reachable"
     },
