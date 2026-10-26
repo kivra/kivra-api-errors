@@ -108,9 +108,28 @@ jobs:
         dry_run: true
         release_branches: ${{ github.event.repository.default_branch }}
 
+    # main only accepts changes via the merge queue, so the version bump is
+    # committed on top of main and only reachable through the tag
+    - name: Tag a commit with the new version in setup.py
+      if: steps.tag-version.outputs.new_tag != ''
+      run: |
+        sed -i -E "s/^(\s*version=)'[^']*'/\1'${NEW_VERSION}'/" setup.py
+        if git diff --quiet -- setup.py; then
+          echo "::error::Failed to set version='${NEW_VERSION}' in setup.py"
+          exit 1
+        fi
+        git config user.name "kivra-platform-ci"
+        git config user.email "kivra-platform-ci@users.noreply.github.com"
+        git commit -m "no-release: set setup.py version to ${NEW_VERSION}" -- setup.py
+        git tag "${NEW_TAG}"
+        git push origin "refs/tags/${NEW_TAG}"
+      env:
+        NEW_TAG: ${{ steps.tag-version.outputs.new_tag }}
+        NEW_VERSION: ${{ steps.tag-version.outputs.new_version }}
+
     - name: Create a GitHub release
       if: steps.tag-version.outputs.new_tag != ''
-      run: gh release create "${NEW_TAG}" --generate-notes --latest=false
+      run: gh release create "${NEW_TAG}" --verify-tag --generate-notes --latest=false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NEW_TAG: ${{ steps.tag-version.outputs.new_tag }}
