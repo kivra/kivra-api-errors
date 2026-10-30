@@ -10,7 +10,7 @@ with open(path.join(HERE, "README.md"), encoding="utf-8") as fp:
 
 setup(
     name='kivra_api_errors',
-    version='1.0.3',
+    version='1.19.33',
     description='Python interface for Kivra API errors',
     py_modules = ['kivra_api_errors'],
     data_files = [('/kivra_api_errors_data', ['api-errors.json'])],
